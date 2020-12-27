@@ -74,12 +74,24 @@
 
   
     };
-    let hostiles = 0;
+    
 
     let encounter = {
         allCreatures: new Array(),
         
-
+        countHostiles: function(){
+            let hostiles = 0;
+            
+            
+            for ( let i = 0; i < encounter.allCreatures.length; i++){
+                let creature = encounter.allCreatures[i].hostile;
+                if(creature === 1){
+                    hostiles++;
+                };
+                
+            };
+            console.log(hostiles);
+        },
         creatureToInit: function(creature) {
             
             this.allCreatures.push(creature);
@@ -87,11 +99,7 @@
         },
 
         creatureRemove: function(index) {
-            let creature = this.allCreatures[index]._hostile;
-            if (creature == 1){
-                hostiles--;
-                console.log(hostiles);
-            };
+            
             this.allCreatures.splice(index, 1);
         },
     };
@@ -109,10 +117,15 @@ function printOne(index){
     $("#maxhp1").val(printCreature._maxhp);
     $("#hp1").val(printCreature._hp);
     $("#init1").val(printCreature._init);
-    if (printCreature.concentration == 1) {
-        $('input.concentration').prop( "checked", true )
+    if (printCreature.hostile == 1) {
+        $('input.hostile1').prop( "checked", true )
     } else {
-        $('input.concentration').prop( "checked", false )
+        $('input.hostile1').prop( "checked", false )
+    };
+    if (printCreature.concentration == 1) {
+        $('input.concentration1').prop( "checked", true )
+    } else {
+        $('input.concentration1').prop( "checked", false )
     };
     
     $("#creatureStatTab #closeTab").before("<button type='button' class='btn btn-success col-12' id='edit1' onclick='edit(" + index + ")'>Save Changes</button>");
@@ -136,11 +149,16 @@ function print() {
             $("#"+listedCreature + " .row").addClass("bloodied");
         };
         if (oneCreature.concentration == 1) {
-            $("#"+listedCreature + " .row .hpBox").append("<br>" + "C")
+            $("#"+listedCreature + " .row .hpBox").append("<br>" + "C");
+
+        };
+        if (oneCreature.hostile == 1) {
+            $("#"+listedCreature + " .centerBox, " + "#"+listedCreature + " .hpBox").addClass("hostile");
 
         };
 
     };
+    encounter.countHostiles();
     turns();
 };
 
@@ -153,12 +171,18 @@ function edit(index){
     editCreature.hp = document.getElementById('hp1').value;
     editCreature.maxhp = document.getElementById('maxhp1').value;
     editCreature.init = document.getElementById('init1').value; 
-    if ($('input.concentration').is(':checked')) {
+    if ($('input.hostile1').is(':checked')) {
+        editCreature.hostile = 1;
+        
+    } else {
+        editCreature.hostile = 0;
+    };
+    if ($('input.concentration1').is(':checked')) {
         editCreature.concentration = 1;
         
     } else {
         editCreature.concentration = 0;
-    }
+    };
     print();
 };
 
@@ -215,6 +239,8 @@ function start(){
     $("#start").toggleClass("collapse");
     $("#end").toggleClass("collapse");
     $("#round").toggleClass("collapse");
+    $("#load").toggleClass("collapse");
+    $("#saveButton").toggleClass("collapse");
     $("#round").append("Round: " + currentRound);
     
     $("#creature"+currentTurn+" .row").addClass("current");
@@ -232,6 +258,8 @@ function end(){
     $("#start").toggleClass("collapse");
     $("#end").toggleClass("collapse");
     $("#round").toggleClass("collapse");
+    $("#load").toggleClass("collapse");
+    $("#saveButton").toggleClass("collapse");
     let creatureNumber = encounter.allCreatures.length;
 
     for(let i = 0; i <= creatureNumber; i++){

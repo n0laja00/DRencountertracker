@@ -56,8 +56,8 @@
             </div>
 
             <div class="form-check text-center">
-              <input class="hostile" type="checkbox" value="1" id="hostile">
-                <label class="form-check-label" for="hostile">
+              <input class="hostile2" type="checkbox" id="hostile">
+                <label class="form-check-label" for="hostile1">
                   Is Hostile
                 </label>
             </div>
@@ -78,7 +78,7 @@
               <h3 class="collapse" id="round"></h3>
               <button type="button" class="btn btn-info col-8" id="start" onclick="start()">Start Combat</button>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-success col-8" data-toggle="modal" data-target="#saveModal">Save Encounter</button>
+              <button type="button" class="btn btn-success col-8" data-toggle="modal" data-target="#saveModal" id="saveButton">Save Encounter</button>
 
               <!-- I'm tired, so I'll just do this -->
               <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -172,8 +172,15 @@
           </div>
 
           <div class="form-check text-center">
-            <input class="concentration" type="checkbox" value="2" id="concentration">
-              <label class="form-check-label" for="concentration">
+            <input class="hostile1" type="checkbox" value="1" id="hostile">
+              <label class="form-check-label" for="hostile1">
+                Is Hostile
+              </label>
+          </div>
+
+          <div class="form-check text-center">
+            <input class="concentration1" type="checkbox" value="2" id="concentration">
+              <label class="form-check-label" for="concentration1">
                 Is concentrating
               </label>
           </div>

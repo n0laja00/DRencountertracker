@@ -27,6 +27,8 @@ $(document).ready(function(){
         $("#start").removeClass("collapse");
         $("#end").addClass("collapse");
         $("#round").addClass("collapse");
+        $("#load").removeClass("collapse");
+        $("#saveButton").removeClass("collapse");
     });
 
 $("#descending").click(function(){
@@ -63,7 +65,7 @@ $("#closeTab1").click(function(){
 
 
 $("#save").click(function(){
-    if ($('input.hostile').is(':checked')) { 
+    if ($('input.hostile2').is(':checked')) { 
         let creature = new Creature(
             $("#name").val(),
             $("#ac").val(),
@@ -72,8 +74,8 @@ $("#save").click(function(){
             $("#init").val(),
             1,
             );
-            hostiles++;
-            console.log(hostiles);
+           
+           
             encounter.creatureToInit(creature);
     } else {
         let creature = new Creature(
@@ -85,7 +87,7 @@ $("#save").click(function(){
         0,
         );
         
-        console.log(hostiles);
+        
         encounter.creatureToInit(creature);
     }
         
