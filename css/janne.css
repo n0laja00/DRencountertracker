@@ -1,0 +1,56 @@
+button{
+    margin-top: 0.5em !important;
+}
+
+
+.initBox{
+    height: 20px;
+    width: 20px;
+}
+
+
+.dead{
+    background-color:rgba(219, 20, 60, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.bloodied{
+    background-color:rgba(245, 223, 28, 0.8);
+    animation: pulse 2s infinite;
+}
+
+.creature-block{
+    border: lightgray 1px solid;
+     /*box-shadow: 1px 1px 0 0 darkslategrey;*/
+     margin: 1em;
+     font-size: 1em;
+ 
+ }
+.hpBox{
+    background-color: rgba(211, 211, 211, 0.8);
+    font-size: 1.1em;
+}
+
+.tab {
+    border: lightgray 1px solid;
+}
+
+.current{
+    border: lightskyblue 1px solid !important;
+    box-shadow: 1px 1px 1px 1px lightsteelblue;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow:0 0 0 0 rgba(219, 20, 60, 0.7);
+    }
+    70%{
+        transform: scale(1.05);
+        box-shadow:0 0 0 3px rgba(219, 20, 60, 0);
+    }
+    100%{
+        transform: scale(0.95);
+        box-shadow: none;
+    }
+}
