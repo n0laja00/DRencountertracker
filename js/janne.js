@@ -60,7 +60,9 @@ $("#closeTab1").click(function(){
     $("#creatureAdd").toggleClass("collapse");
     $("#creatureStatTab").addClass("col-5");
     $("#listTab").addClass("col-7");
+    if($('#openAdd').length <= 0){
     $("#ascending").after("<button type='button' class='btn btn-secondary col-12' id='openAdd' onclick='openAdd()'>Add Creature</button>");
+    };
 });
 
 

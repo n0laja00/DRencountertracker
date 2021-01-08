@@ -1,7 +1,13 @@
 button{
     margin-top: 0.5em !important;
 }
-
+.floatCreatureStatTab{
+    position: fixed;
+    width: 20em;
+    right: 1em;
+    background: white;
+    box-shadow: 1px 1px 1px 0px grey;
+}
 
 .initBox{
     height: 20px;
@@ -21,14 +27,12 @@ button{
 
 .creature-block{
     border: lightgray 1px solid;
-     /*box-shadow: 1px 1px 0 0 darkslategrey;*/
-     margin: 1em;
-     font-size: 1em;
- 
+        /*box-shadow: 1px 1px 0 0 darkslategrey;*/
+    margin: 1em;
+    font-size: inherit;
  }
 .hpBox{
-    
-    font-size: 1.1em;
+    font-size: inherit;
 }
 
 .tab {

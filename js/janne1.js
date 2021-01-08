@@ -11,8 +11,8 @@
             this._concentration = concentration;
         }
         printListStat(){
-            return "<div class='row creature-block'>" + "<div class='col-2 initBox align-self-center'>" + this._init +
-             "</div>" + "<div class='col-6 centerBox'>" + this._name + '<br>' + 'AC: ' + this._ac + "</div>" + "<div class='col-4 hpBox'>" + this._hp + "/" + 
+            return "<div class='row creature-block text-break'>" + "<div class='col-lg-2 col-md-3 col-sm-4 col-4 initBox align-self-center'>" + this._init +
+             "</div>" + "<div class='col-lg-7 col-md-5 col-sm-8 col-8 centerBox'>" + this._name + '<br>' + 'AC: ' + this._ac + "</div>" + "<div class='col-lg-3 col-md-4 col-sm-12 col-12 hpBox'>" + this._hp + "/" + 
              this._maxhp + "</div>" + "</div>"; 
         }
 
@@ -107,6 +107,10 @@
 function printOne(index){
     let printCreature = encounter.allCreatures[index];
     $("#creatureStatTab").removeClass("collapse");
+    $("#creatureAdd").addClass("collapse");
+    if($('#openAdd').length <= 0){
+        $("#ascending").after("<button type='button' class='btn btn-secondary col-12' id='openAdd' onclick='openAdd()'>Add Creature</button>");
+        };
     $("#creatureStatTab p").remove();
     $("#creatureStatTab #edit1").remove();
     $("#creatureStatTab #remove").remove();
@@ -193,7 +197,8 @@ function remove(index){
 };
 
 function openAdd(){
-    $("#creatureAdd").toggleClass("collapse");
+    $("#creatureAdd").removeClass("collapse");
+    $("#creatureStatTab").addClass("collapse");
     $("#openAdd").remove();
     $("#creatureStatTab").removeClass("col-5");
     $("#listTab").removeClass("col-7");
